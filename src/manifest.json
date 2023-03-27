@@ -1,0 +1,42 @@
+{
+  "name": "__MSG_appName__",
+  "description": "__MSG_appDesc__",
+  "default_locale": "en",
+  "version": "1.17.0",
+  "manifest_version": 2,
+  "icons": {
+    "16": "logo.png",
+    "32": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
+  },
+  "host_permissions": ["https://*.openai.com/"],
+  "permissions": [
+    "tabs",
+    "http://*/*",
+    "https://*/*",
+    "storage",
+    "webRequest"
+   ],
+  "background": {
+    "scripts": [
+      "background.js",
+      "background-dual.js"
+     ]
+  },
+  "browser_action": {
+    "default_title": "Show two captions",
+    "default_icon": "icon.png",
+    "default_popup": "index.html"
+   },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+  
+      ],
+      "js": ["content-script.js","bundle.js"],
+      "css": ["content-script.css"]
+    }
+  ]
+}
